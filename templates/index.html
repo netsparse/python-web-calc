@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Calculator</h1>
+
+    <form method="post" action="/calculate">
+        <label for="x">Num #1:</label>
+        <input type="number" name="x" required>
+
+        <label for="y">Num #2:</label>
+        <input type="number" name="y" required>
+
+        <br>
+
+        <label for="operation">Operation:</label>
+        <select name="operation">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select>
+
+        <br><br>
+
+        <input type="submit" value="Calculate">
+    </form>
+
+    {% if result %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>
+
